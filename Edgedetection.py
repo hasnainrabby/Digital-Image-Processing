@@ -1,0 +1,22 @@
+import cv2
+import numpy as np
+img=cv2.imread('C:\\Users\Aspire\Desktop\pic.jpg')
+height,width=img.shape[:2]
+Sobel_x=cv2.Sobel(img,cv2.CV_64F,1,0,ksize=3)
+Sobel_y=cv2.Sobel(img,cv2.CV_64F,0,1,ksize=3)
+cv2.imshow('Original image',img)
+cv2.waitKey(0)
+cv2.imshow('Sobel_x',Sobel_x)
+cv2.waitKey(0)
+cv2.imshow('Sobel_y',Sobel_y)
+cv2.waitKey(0)
+Sobel_Or=cv2.bitwise_or(Sobel_x,Sobel_y)
+cv2.imshow('Sobel or image',Sobel_Or)
+cv2.waitKey(0)
+laplacian=cv2.Laplacian(img,cv2.CV_64F)
+cv2.imshow('Laplacian image',laplacian)
+cv2.waitKey(0)
+canny=cv2.Canny(img,20,170)
+cv2.imshow('Canny image',canny)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
